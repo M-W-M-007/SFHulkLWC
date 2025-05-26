@@ -1,0 +1,14 @@
+<template>
+
+    <div class="slds-grid slds-wrap">
+    <lightning-button variant="brand" label="Show/Hide" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    
+    <template if:true={showfirst}>
+    <lightning-card  title="Hello">
+        <lightning-button label="New" slot="actions"></lightning-button>
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>
+</div>
+</template>

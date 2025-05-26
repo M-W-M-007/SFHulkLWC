@@ -1,0 +1,8 @@
+<template>
+    <lightning-input label="PLease enter text to show" value="" type="text" onkeyup={onSetup}></lightning-input>
+    <lightning-button label="SetValue" onclick={setValue}></lightning-button>
+    <c-child-component child-property1="Hello World"></c-child-component>
+
+    <!-- aditional line for button to clear text box -->
+     <lightning-button label="Clear Text" onclick={emptyChildProperty2}></lightning-button>
+</template>

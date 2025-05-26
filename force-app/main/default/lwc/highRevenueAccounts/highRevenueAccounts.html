@@ -1,0 +1,18 @@
+<template>
+   <lightning-card>
+      <lightning-input label="Enter the Number ro show records" type="number" onkeyup={onSetup}>
+      </lightning-input>
+
+   </lightning-card>
+   <template for:each={accountToDisplay} for:item="account">
+      <lightning-card key={account.Id} title={account.Name}>
+         <p><lightning-formatted-text value={account.Name} linkify></lightning-formatted-text></p>
+         <p><lightning-formatted-number value={account.AnnualRevenue} format-style="currency"
+               currency-code="USD"></lightning-formatted-number></p>
+         <p><lightning-formatted-address street={account.BillingStreet} city={account.BillingCity}
+               province={account.BillingState} postal-code={account.BillingPostalCode}
+               country={account.BillingCountry}></lightning-formatted-address>
+         </p>
+      </lightning-card>
+   </template>
+</template>
