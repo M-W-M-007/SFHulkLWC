@@ -12,7 +12,7 @@ export default class ParentComponent extends LightningElement {
         this.template.querySelector('c-child-component').clearChildProperty2();
     }
 
-    childMessage = "No message recievced yet";
+    childMessage = "No message recieved yet";
   
     //get message from child
     storeMessage(event) {

@@ -12,4 +12,11 @@ export default class ChildComponent extends LightningElement {
         this.childProperty2 = '';
     }
 
+    sendToParent(){
+        console.log('Parent method get called');
+       const inputValue = this.template.querySelector('lightning-input').value ;
+             let evt = new CustomEvent('send', {detail: inputValue})   
+        this.dispatchEvent(evt);      
+    }
+
 }

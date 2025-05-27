@@ -1,4 +1,13 @@
 <template>
     <p>ChildProperty1: {childProperty1}</p>
     <p>ChildProperty2: {childProperty2}</p>
+
+    <!--- aditional line for button to clear text box -->
+<lightning-card >
+   <lightning-input class="slds-p-horizontal_small" title="Eneter a message for parent Component" label="Eneter a message for parent Component"></lightning-input>
+    <lightning-button class="slds-p-horizontal_small" label="Send" onclick={sendToParent}></lightning-button> 
+  
+</lightning-card>
+    
+
 </template>

@@ -4,10 +4,10 @@
     <c-child-component child-property1="Hello World" onsend={storeMessage}></c-child-component>
 
     <!-- aditional line for button to clear text box -->
-     <lightning-button label="Clear Text" onclick={emptyChildProperty2}></lightning-button>
+     <lightning-button label="Call Child Method" onclick={emptyChildProperty2}></lightning-button>
 
      <!-- aditional line for from call child componenet text box to show value -->
-     <lightning-card class="slds-p-left_margin" title="Eneter message from child">
-        <p>{childMessage}</p>
+     <lightning-card  title="Latest Message from Child Component">
+        <p class="slds-p-left_small">{childMessage}</p>
      </lightning-card>
 </template>
