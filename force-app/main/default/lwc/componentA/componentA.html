@@ -1,9 +1,16 @@
 <template>
     <lightning-card title="Component A" icon-name="standard:custom">
+         <!--Component A Send message-->
         <div class="slds-m-around_medium">
           <lightning-input title="Enter Message for Component B" label="Enter the messgae for Comopnent B"></lightning-input>
             <lightning-button label="Send Message" onclick={handleButtonClick}></lightning-button>
-           
         </div>
+
+         <!--Component A recieved message-->
+
+        <div class="slds-m-around_medium">
+            <lightning-formatted-text value={recievedmessagefromb}></lightning-formatted-text>
+        </div>
+
        </lightning-card>
 </template>
