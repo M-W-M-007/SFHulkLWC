@@ -1,15 +1,24 @@
 <template>
     <lightning-card title="Component B" icon-name="standard:custom">
-         <!--Component B Send message-->
+        <!-- Send message to A -->
         <div class="slds-m-around_medium">
-          <lightning-input title="Enter Message for Component A" label="Enter the messgae for Comopnent A"></lightning-input>
-            <lightning-button label="Send Message" onclick={handleButtonClickForA}></lightning-button>
+            <lightning-input 
+                label="Enter message for Component A" 
+                placeholder="Type here...">
+            </lightning-input>
+            <lightning-button 
+                label="Send to A" 
+                onclick={handleButtonClick}>
+            </lightning-button>
+            <lightning-button 
+                label="Send to C" 
+                onclick={handleButtonClickC}>
+            </lightning-button>
         </div>
-        <!--Component B recieved message-->
 
+        <!-- Display received message from A -->
         <div class="slds-m-around_medium">
-            <lightning-formatted-text value={recievedmessage}></lightning-formatted-text>
+            <p>Latest message from A: <strong>{receivedMessageFromA}</strong></p>
         </div>
-        
     </lightning-card>
 </template>

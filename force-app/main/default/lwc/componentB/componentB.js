@@ -3,35 +3,43 @@ import { publish, subscribe, MessageContext } from 'lightning/messageService';
 import Component_Communication_Channel from '@salesforce/messageChannel/ComponentCommunicationChannel__c';
 
 export default class ComponentB extends LightningElement {
-
     @wire(MessageContext)
     messageContext;
-/////////////////// B sending message ///////////////////////
-    handleButtonClickForA() {
-            const messageInput1 = this.template.querySelector('lightning-input').value;
-            const payloadA = { messageb: messageInput1 };
-            publish(this.messageContext, Component_Communication_Channel, payloadA);
-        }
 
-        ///////////////// B recieving message ///////////////////////
+    // Store the latest message from A
+    receivedMessageFromA = 'No message received yet';
 
+    // Subscription for Component A's messages
     subscription = null;
-    recievedmessage = 'Message not recieived yet';
+
     connectedCallback() {
         if (!this.subscription) {
             this.subscription = subscribe(
                 this.messageContext,
                 Component_Communication_Channel,
-                (payload) => this.handleMessage(payload)
+                (payload) => this.handleMessageFromA(payload)
             );
         }
     }
 
-    handleMessage(payload) {
-        console.log('Message received in Component B:', payload);
-        this.recievedmessage = payload.messagea;
+    // Handle incoming messages from A
+    handleMessageFromA(payload) {
+        if (payload.messagea) {
+            this.receivedMessageFromA = payload.messagea;
+        }
     }
 
-    
+    // Send message to A
+    handleButtonClick() {
+        const messageInput = this.template.querySelector('lightning-input').value;
+        const payload = { messageb: messageInput };
+        publish(this.messageContext, Component_Communication_Channel, payload);
+    }
 
+    // Send message to C
+    handleButtonClickC() {
+        const messageInput = this.template.querySelector('lightning-input').value;
+        const payload = { messagec: messageInput };
+        publish(this.messageContext, Component_Communication_Channel, payload);
+    }
 }
